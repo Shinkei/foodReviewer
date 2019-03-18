@@ -23,7 +23,7 @@ Tips on How to Tackle the test:
 4. Identify technical decisions you need to make and sketch out an initial plan.
 5. Organise your tasks in a todo list or a Trello board
 6. Start coding and commit often!
-7. [KISS, DRY and YAGNI](https://itexico.com/blog/bid/99765/software-development-kiss-yagni-dry-3-principles-to-simplify-your-life)
+7. [KISS, DRY and YAGNI](https://www.itexico.com/blog/software-development-kiss-yagni-dry-3-principles-to-simplify-your-life)
 8. Enrich the code with comments and include clear instructions!
 
 ### Exercise:
