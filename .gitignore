@@ -67,7 +67,7 @@ typings/
 # ci variables file
 ci/vars.yml
 
-
+*.js.snap
 
 
 # End of https://www.gitignore.io/api/node

@@ -86,7 +86,7 @@ The following should be true for this page:
     You could use a pre-processor, post-processor, or [CSS-in-JS](https://github.com/MicheleBertoli/css-in-js) instead.
 
 9.  Should I write unit tests?
-    The app must contain unit tests, and aim for a good test coverage, but please avoid using snapshots (we understand that in real life are important, but to make the test easier to review).
+    Please add tests for the things you judge to be the most important.
 
 _P.S: We'll automatically format the code before every commit using prettier. We want to focus the review in business logic, patterns and architecture decisions rather than styling._
 
