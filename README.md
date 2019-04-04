@@ -88,6 +88,9 @@ The following should be true for this page:
 9.  Should I write unit tests?
     Please add tests for the things you judge to be the most important.
 
+10. Can I use a CI/CD tool?
+    We can't grant permission to 3rd party services like Netlify or CircleCI. We recommend you to use the manual CLI that these tools provide and make it available through npm scripts.
+
 _P.S: We'll automatically format the code before every commit using prettier. We want to focus the review in business logic, patterns and architecture decisions rather than styling._
 
 ### Evaluation Criteria:
