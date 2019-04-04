@@ -115,9 +115,7 @@ _P.S: We'll automatically format the code before every commit using prettier. We
 
 ### Bonus Point:
 
-- Your code is well documented.
 - Your app has server side rendering
-- Your UI components have usable animations.
 - Your app is deployed (you may use something like [Now](https://zeit.co/now))
 
 Good luck, and have fun!
