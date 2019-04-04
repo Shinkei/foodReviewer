@@ -39,7 +39,6 @@ The following should be true for this page:
 
 - All the recipes are displayed
 - The data of each recipe is displayed in a user-friendly way. the recipe card should display at least: recipe's name, headline, image, calories and time.
-- Each recipe can be favorited or unfavorited
 - Each recipe can be rated
 
 #### [II. Recipe details page](https://www.hellofresh.com/recipes/quick-beef-ragu-spaghetti-5abd4797ae08b549e56a1502?locale=en-US)
@@ -47,7 +46,6 @@ The following should be true for this page:
 The following should be true for this page:
 
 - In addition to the details in the overview page, this page should display at least: description, ingredients, fats, calories, proteins, carbs and preparation time?
-- Each recipe can be favorited or unfavorited
 - Each recipe can be rated
 
 #### API:
@@ -109,7 +107,6 @@ _P.S: We'll automatically format the code before every commit using prettier. We
 
 - Two routes are implmented (recipes overview, and recipe detail)
 - Recipe rating is implemented. Please do not use any external library like `react-rating`.
-- Recipe favouriting is implemented
 
 #### UI:
 
