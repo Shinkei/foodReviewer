@@ -14,7 +14,7 @@ _Note: While we love open source here at HelloFresh, please do not create a publ
 2.  Create a new `dev` branch.
 3.  Plan, Code, commit, repeat! (We won't be looking at the time each task took, but we'd love to see your train of thought reflected in the development timeline through various commits).
 4.  When finished, write clear instructions and an explanation for your solution.
-5.  Create a Pull-Request to this repo.
+5.  Create a Pull-Request to the `master` branch of this repo.
 6.  After creating your pull request please send the link via email to our HR department in order for us to start the reviewing process.
 
 Tips on How to Tackle the test:
@@ -77,7 +77,7 @@ The following should be true for this page:
     Feel free to be creative with the design, but you could use our [website](https://www.hellofresh.com/recipes/)'s design instead.
 
 6.  Can I use a CSS/UI framework?
-    Bootstrap or any other CSS/UI framework should be avoided.
+    Component libraries like Bootstrap UI or Material UI should be avoided.
 
 7.  Can I use a utility package like lodash?
     Using utility packages trusted and test by the community is recommended, please use them as you would in a production app.
