@@ -23,7 +23,7 @@ Tips on How to Tackle the test:
 2.  Be well rested and choose a quiet place with no interruptions
 3.  Read the instructions and requirements carefully, and feel free to ask any questions.
 4.  Identify technical decisions you need to make and sketch out an initial plan.
-5.  Organise your tasks in a todo list or a Trello board
+5.  Organize your tasks in a todo list or a Trello board
 6.  Start coding and commit often!
 7.  [KISS, DRY and YAGNI](https://www.itexico.com/blog/software-development-kiss-yagni-dry-3-principles-to-simplify-your-life)
 8.  Enrich the code with comments and include clear instructions!
@@ -54,7 +54,7 @@ The following should be true for this page:
 
 ### FAQ:
 
-0.  Are there any minimal requirments for npm and node?
+0.  Are there any minimal requirements for npm and node?
 
 | Package | Version |
 | ------- | ------- |
@@ -103,12 +103,12 @@ _P.S: We'll automatically format the code before every commit using prettier. We
 
 #### Resilience:
 
-- The app has unit tests
-- Tests and Eslint need to pass
+- The app has unit tests (Tip: focus on functionality and behavior)
+- Tests and ESLint need to pass
 
 #### Features:
 
-- Two routes are implmented (recipes overview, and recipe detail)
+- Two routes are implemented (recipes overview, and recipe detail)
 - Recipe rating is implemented. Please do not use any external library like `react-rating`.
 
 #### UI:
@@ -116,9 +116,20 @@ _P.S: We'll automatically format the code before every commit using prettier. We
 - You implemented a proper grid.
 - Your app is responsive.
 
+#### Accessibility
+
+- Your app should be accessible and usable by keyboard users (eg.
+  They're able to rate recipes and navigate your app). Tip: Using
+  semantic HTML is usually enough.
+
+- You can use the
+  [aXe](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd)
+  extension to help you audit your app for accessibility.
+
 ### Bonus Point:
 
 - Your app has server side rendering
-- Your app is deployed (you may use something like [Now](https://zeit.co/now))
+- Your app is deployed (you may use something like
+  [Vercel](https://vercel.com/home) or [Netlify](https://Netlify.com))
 
 Good luck, and have fun!
