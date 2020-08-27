@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import logo from './hellofresh-logo.svg';
-/*
- We encourage our candidates to over-engineer,
- so please feel free to use any other styling methodology
- e.g., Emotion, Fela, SASS, etc.
- */
-import './App.css';
+import { connect } from 'react-redux';
+import { fetchRecipes } from './actions';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchRecipes();
+  }
   render() {
+    console.log(this.props);
     return (
       <div className="App">
         <header className="App-header">
@@ -23,4 +23,11 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps({ recipes: recipesReducer }) {
+  return { recipes: recipesReducer.recipes };
+}
+
+export default connect(
+  mapStateToProps,
+  { fetchRecipes }
+)(App);
