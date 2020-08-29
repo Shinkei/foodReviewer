@@ -1,6 +1,7 @@
 import React from 'react';
 import withStyles from 'react-jss';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchRecipes } from '../actions';
 import RecipeCard from '../components/RecipeCard';
 
@@ -14,6 +15,9 @@ const styles = {
   recipe: {
     height: 350,
   },
+  link: {
+    textDecoration: 'none',
+  },
 };
 
 class RecipesOverview extends React.Component {
@@ -26,15 +30,17 @@ class RecipesOverview extends React.Component {
     return (
       <div className={classes.recipesList}>
         {recipes.map(recipe => (
-          <RecipeCard
-            className={classes.recipe}
-            name={recipe.name}
-            headline={recipe.headline}
-            image={recipe.image}
-            rating={recipe.rating}
-            calories={recipe.calories}
-            time={recipe.time}
-          />
+          <Link to={`/recipe/${recipe.id}`} className={classes.link}>
+            <RecipeCard
+              className={classes.recipe}
+              name={recipe.name}
+              headline={recipe.headline}
+              image={recipe.image}
+              rating={recipe.rating}
+              calories={recipe.calories}
+              time={recipe.time}
+            />
+          </Link>
         ))}
       </div>
     );

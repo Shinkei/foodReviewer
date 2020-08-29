@@ -10,14 +10,22 @@ const styles = {
   },
 };
 
-const Star = ({ value, rating, classes }) => {
-  console.log(typeof value, typeof rating, value >= rating);
-  return <span className={classes.root}>{value <= rating ? '★' : '☆'}</span>;
+const Star = ({ value, rating, big, classes }) => {
+  return (
+    <span className={classes.root} style={{ fontSize: big ? 24 : 12 }}>
+      {value <= rating ? '★' : '☆'}
+    </span>
+  );
+};
+
+Star.defaultProps = {
+  big: false,
 };
 
 Star.propTypes = {
   value: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
+  big: PropTypes.bool,
 };
 
 export default withStyles(styles)(Star);

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import RatingStars from './RatingStars';
+import { time2Text } from '../utils';
 
 const styles = {
   root: {
@@ -31,8 +32,6 @@ const styles = {
   },
 };
 
-const periods = { M: 'Minutes', H: 'Hours', PT: 'Preparation Time: ' };
-
 const RecipeCard = ({
   name,
   headline,
@@ -43,11 +42,6 @@ const RecipeCard = ({
   classes,
   className,
 }) => {
-  let timeArray = time
-    ? time.split(/(?<=\D)(?=\d)|(?<=\d)(?=\D)/)
-    : ['no time'];
-  timeArray = timeArray.map(element => periods[element] || element);
-
   return (
     <div
       className={classNames(classes.root, className)}
@@ -58,7 +52,7 @@ const RecipeCard = ({
       <h5 className={classes.text}>{headline}</h5>
       <div className={classes.details}>
         <h6 className={classes.text}>{`🔥 ${calories || 'no info'}`}</h6>
-        <h6 className={classes.text}>{`⏲ ${timeArray.join(' ')}`}</h6>
+        <h6 className={classes.text}>{`⏲ ${time2Text(time)}`}</h6>
       </div>
       <RatingStars rating={rating} />
     </div>

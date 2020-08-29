@@ -12,18 +12,27 @@ const styles = {
   },
 };
 
-const RatingStars = ({ rating, classes }) => {
+const RatingStars = ({ rating, classes, big, className }) => {
   rating = rating > 0 ? rating : 0;
   return (
-    <span>
-      {[1, 2, 3, 4, 5].map(num => <Star value={num} rating={rating} />)}
+    <span className={className}>
+      {[1, 2, 3, 4, 5].map(num => (
+        <Star value={num} rating={rating} big={big} />
+      ))}
       <span className={classes.ratingNumber}>{rating}</span>
     </span>
   );
 };
 
+RatingStars.defaultProps = {
+  className: '',
+  big: false,
+};
+
 RatingStars.propTyoes = {
   rating: PropTypes.number.isRequired,
+  className: PropTypes.string,
+  big: PropTypes.bool,
 };
 
 export default withStyles(styles)(RatingStars);
