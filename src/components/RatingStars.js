@@ -7,7 +7,7 @@ const styles = {
   ratingNumber: {
     marginLeft: 6,
     fontFamily: 'Source Sans Pro',
-    fontSize: 14,
+    fontSize: 12,
     color: '#fff',
   },
 };

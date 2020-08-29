@@ -6,6 +6,7 @@ const styles = {
   root: {
     color: 'gold',
     marginRight: 2,
+    fontSize: 12,
   },
 };
 

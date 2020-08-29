@@ -1,12 +1,11 @@
 import React from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import RatingStars from './RatingStars';
 
 const styles = {
   root: {
-    width: '100%',
-    height: 'auto',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -20,11 +19,12 @@ const styles = {
     color: '#fff',
     letterSpacing: '-0.3px',
     fontWeight: 400,
-    marginTop: 8,
+    marginTop: 4,
     marginBottom: 0,
   },
   details: {
     display: 'flex',
+    marginTop: 12,
     '& > *': {
       marginRight: 8,
     },
@@ -41,6 +41,7 @@ const RecipeCard = ({
   calories,
   time,
   classes,
+  className,
 }) => {
   let timeArray = time
     ? time.split(/(?<=\D)(?=\d)|(?<=\d)(?=\D)/)
@@ -49,7 +50,7 @@ const RecipeCard = ({
 
   return (
     <div
-      className={classes.root}
+      className={classNames(classes.root, className)}
       style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,0) 10%,rgba(0,0,0,0.8) 80%),url(${image})`,
       }}>
@@ -69,6 +70,7 @@ RecipeCard.defaultProps = {
   calories: 'no info',
   time: 'no time',
   rating: 0,
+  className: '',
 };
 
 RecipeCard.propTypes = {
@@ -78,6 +80,7 @@ RecipeCard.propTypes = {
   rating: PropTypes.number,
   calories: PropTypes.string,
   time: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default withStyles(styles)(RecipeCard);

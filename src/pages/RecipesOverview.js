@@ -4,7 +4,17 @@ import { connect } from 'react-redux';
 import { fetchRecipes } from '../actions';
 import RecipeCard from '../components/RecipeCard';
 
-const styles = {};
+const styles = {
+  recipesList: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+    gridGap: 8,
+    gridAutoFlow: 'row',
+  },
+  recipe: {
+    height: 350,
+  },
+};
 
 class RecipesOverview extends React.Component {
   componentDidMount() {
@@ -12,11 +22,12 @@ class RecipesOverview extends React.Component {
   }
 
   render() {
-    const { recipes } = this.props;
+    const { recipes, classes } = this.props;
     return (
-      <>
+      <div className={classes.recipesList}>
         {recipes.map(recipe => (
           <RecipeCard
+            className={classes.recipe}
             name={recipe.name}
             headline={recipe.headline}
             image={recipe.image}
@@ -25,7 +36,7 @@ class RecipesOverview extends React.Component {
             time={recipe.time}
           />
         ))}
-      </>
+      </div>
     );
   }
 }
