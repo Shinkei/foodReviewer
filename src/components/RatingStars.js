@@ -41,6 +41,7 @@ class RatingStars extends React.Component {
       <span className={className}>
         {[1, 2, 3, 4, 5].map(num => (
           <Star
+            key={num}
             value={num}
             rating={rating}
             big={big}

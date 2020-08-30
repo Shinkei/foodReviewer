@@ -31,12 +31,14 @@ const Star = ({ value, rating, big, onClick, classes }) => {
 
 Star.defaultProps = {
   big: false,
+  onClick: () => {},
 };
 
 Star.propTypes = {
   value: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
   big: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default withStyles(styles)(Star);

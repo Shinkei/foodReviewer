@@ -3,8 +3,10 @@ import withStyles from 'react-jss';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { getRecipe, updateRating } from '../actions';
-import { time2Text, mapDifficulty, calculateRating } from '../utils';
+import { calculateRating } from '../utils';
 import RatingStars from '../components/RatingStars';
+import IngredientsList from '../components/IngredientsList';
+import DetailsList from '../components/DetailsList';
 
 const styles = {
   image: {
@@ -66,15 +68,6 @@ const styles = {
       borderTop: 'none',
     },
   },
-  ingredientElement: {
-    listStyle: 'none',
-    '&::before': {
-      content: '"🌱 "',
-    },
-  },
-  ingredientList: {
-    padding: 0,
-  },
   detailTitle: {
     display: 'none',
     '@media screen and (max-width: 700px)': {
@@ -92,6 +85,9 @@ const styles = {
     fontFamily: 'Source Sans Pro',
     fontSize: 24,
     color: '#000',
+  },
+  ingredients: {
+    marginTop: 12,
   },
 };
 
@@ -149,63 +145,21 @@ class RecipeDetail extends React.Component {
             <p className={classNames(classes.primaryText, classes.description)}>
               {description}
             </p>
-            <div className={classes.details}>
-              <h3
-                className={classNames(
-                  classes.primaryText,
-                  classes.detailTitle
-                )}>
-                Details
-              </h3>
-              <div className={classes.secondaryText}>
-                <span role="img" aria-label="time">
-                  ⏲{' '}
-                </span>
-                {time2Text(time)}
-              </div>
-              <div className={classes.secondaryText}>
-                <span role="img" aria-label="difficulty">
-                  💪{' '}
-                </span>Difficulty: {mapDifficulty(difficulty)}
-              </div>
-              <div className={classes.secondaryText}>
-                <span role="img" aria-label="calories">
-                  🔥{' '}
-                </span>
-                {calories}
-              </div>
-              <div className={classes.secondaryText}>
-                <span role="img" aria-label="carbos">
-                  🥖{' '}
-                </span>
-                {carbos} Carbs
-              </div>
-              <div className={classes.secondaryText}>
-                <span role="img" aria-label="proteins">
-                  🍖{' '}
-                </span>
-                {proteins} Proteins
-              </div>
-              <div className={classes.secondaryText}>
-                <span role="img" aria-label="proteins">
-                  🧈{' '}
-                </span>
-                {fats} Fats
-              </div>
-            </div>
+            <DetailsList
+              time={time}
+              difficulty={difficulty}
+              calories={calories}
+              carbos={carbos}
+              proteins={proteins}
+              fats={fats}
+              classes={{ detailTitle: classes.detailTitle }}
+              className={classes.details}
+            />
           </div>
-          <h3 className={classes.primaryText}>Ingredients</h3>
-          <ul className={classes.ingredientList}>
-            {ingredients.map(ingredient => (
-              <li
-                className={classNames(
-                  classes.secondaryText,
-                  classes.ingredientElement
-                )}>
-                {ingredient}
-              </li>
-            ))}
-          </ul>
+          <IngredientsList
+            ingredients={ingredients}
+            className={classes.ingredients}
+          />
         </section>
       </>
     );

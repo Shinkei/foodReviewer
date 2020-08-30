@@ -34,7 +34,10 @@ class RecipesOverview extends React.Component {
     return (
       <div className={classes.recipesList}>
         {recipes.map(recipe => (
-          <Link to={`/recipe/${recipe.id}`} className={classes.link}>
+          <Link
+            to={`/recipe/${recipe.id}`}
+            className={classes.link}
+            key={recipe.id}>
             <RecipeCard
               className={classes.recipe}
               name={recipe.name}
