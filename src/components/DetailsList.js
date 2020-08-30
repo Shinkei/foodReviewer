@@ -41,9 +41,9 @@ const DetailsList = ({
       <h3 className={classNames(classes.primaryText, classes.detailTitle)}>
         Details
       </h3>
-      {details.map(detail => {
+      {details.map((detail, index) => {
         if (detail.text) {
-          return <Detail emoji={detail.emoji} text={detail.text} />;
+          return <Detail key={index} emoji={detail.emoji} text={detail.text} />;
         }
         return undefined;
       })}
@@ -54,7 +54,6 @@ const DetailsList = ({
 DetailsList.defaultProps = {
   time: '',
   difficulty: '',
-  classes: '',
   calories: '',
   carbos: '',
   proteins: '',
@@ -64,8 +63,7 @@ DetailsList.defaultProps = {
 
 DetailsList.propTypes = {
   time: PropTypes.string,
-  difficulty: PropTypes.string,
-  classes: PropTypes.string,
+  difficulty: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   calories: PropTypes.string,
   carbos: PropTypes.string,
   proteins: PropTypes.string,

@@ -13,19 +13,34 @@ const styles = {
   },
 };
 
-const Star = ({ value, rating, big, onClick, classes }) => {
+const Star = ({
+  value,
+  hover,
+  rating,
+  big,
+  onClick,
+  onHoverEnter,
+  onHoverLeave,
+  classes,
+}) => {
   return (
-    <span className={classes.root} style={{ fontSize: big ? 24 : 12 }}>
-      <label>
-        <input
-          type="ratio"
-          value={value}
-          className={classes.radio}
-          onClick={() => onClick(value)}
-        />
-        {value <= rating ? '★' : '☆'}
-      </label>
-    </span>
+    <label className={classes.root} style={{ fontSize: big ? 24 : 12 }}>
+      <input
+        type="ratio"
+        name="rating"
+        defaultValue={value}
+        className={classes.radio}
+        onClick={e => {
+          e.preventDefault();
+          onClick(value);
+        }}
+      />
+      <span
+        onMouseEnter={() => onHoverEnter(value)}
+        onMouseLeave={() => onHoverLeave()}>
+        {value <= (hover || rating) ? '★' : '☆'}
+      </span>
+    </label>
   );
 };
 
@@ -36,7 +51,7 @@ Star.defaultProps = {
 
 Star.propTypes = {
   value: PropTypes.number.isRequired,
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   big: PropTypes.bool,
   onClick: PropTypes.func,
 };

@@ -33,8 +33,9 @@ const IngredientsList = ({ ingredients, className, classes }) => {
     <div className={className}>
       <h3 className={classes.primaryText}>Ingredients</h3>
       <ul className={classes.ingredientList}>
-        {ingredients.map(ingredient => (
+        {ingredients.map((ingredient, index) => (
           <li
+            key={index}
             className={classNames(
               classes.secondaryText,
               classes.ingredientElement

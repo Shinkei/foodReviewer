@@ -15,13 +15,14 @@ const styles = {
 class RatingStars extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { rating: 0 };
+    this.state = { rating: 0, hover: null };
   }
 
   static getDerivedStateFromProps(props, state) {
     if (props.rating !== state.rating) {
       return { rating: props.rating || 0 };
     }
+    return null;
   }
 
   handleRatingChange = newRating => {
@@ -34,18 +35,28 @@ class RatingStars extends React.Component {
     });
   };
 
+  handleHoverEnter = hover => {
+    this.setState({ hover });
+  };
+  handleHoverLeave = () => {
+    this.setState({ hover: null });
+  };
+
   render() {
     const { classes, big, className } = this.props;
-    const { rating } = this.state;
+    const { rating, hover } = this.state;
     return (
       <span className={className}>
         {[1, 2, 3, 4, 5].map(num => (
           <Star
             key={num}
             value={num}
+            hover={hover}
             rating={rating}
             big={big}
             onClick={this.handleRatingChange}
+            onHoverEnter={this.handleHoverEnter}
+            onHoverLeave={this.handleHoverLeave}
           />
         ))}
         <span className={classes.ratingNumber}>{rating}</span>
