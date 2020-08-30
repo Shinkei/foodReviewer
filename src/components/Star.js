@@ -8,12 +8,23 @@ const styles = {
     marginRight: 2,
     fontSize: 12,
   },
+  radio: {
+    display: 'none',
+  },
 };
 
-const Star = ({ value, rating, big, classes }) => {
+const Star = ({ value, rating, big, onClick, classes }) => {
   return (
     <span className={classes.root} style={{ fontSize: big ? 24 : 12 }}>
-      {value <= rating ? '★' : '☆'}
+      <label>
+        <input
+          type="ratio"
+          value={value}
+          className={classes.radio}
+          onClick={() => onClick(value)}
+        />
+        {value <= rating ? '★' : '☆'}
+      </label>
     </span>
   );
 };

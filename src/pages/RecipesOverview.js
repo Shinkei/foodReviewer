@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchRecipes } from '../actions';
 import RecipeCard from '../components/RecipeCard';
+import { calculateRating } from '../utils';
 
 const styles = {
   recipesList: {
@@ -22,7 +23,10 @@ const styles = {
 
 class RecipesOverview extends React.Component {
   componentDidMount() {
-    this.props.fetchRecipes();
+    const { recipes } = this.props;
+    if (recipes.length === 0) {
+      this.props.fetchRecipes();
+    }
   }
 
   render() {
@@ -36,7 +40,7 @@ class RecipesOverview extends React.Component {
               name={recipe.name}
               headline={recipe.headline}
               image={recipe.image}
-              rating={recipe.rating}
+              rating={calculateRating(recipe.rating)}
               calories={recipe.calories}
               time={recipe.time}
             />

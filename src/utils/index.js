@@ -16,3 +16,16 @@ export const time2Text = time => {
 export const mapDifficulty = difficulty => {
   return difficulties[difficulty];
 };
+
+export const calculateRating = ratingList => {
+  if (Array.isArray(ratingList)) {
+    const votes = ratingList.reduce((acc, rating) => (acc += rating), 0);
+    const rating = ratingList.reduce(
+      (acc, rating, index) => (acc += rating * (index + 1)),
+      0
+    );
+
+    return (rating / votes).toFixed(1);
+  }
+  return ratingList;
+};

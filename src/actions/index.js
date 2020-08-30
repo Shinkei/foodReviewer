@@ -1,4 +1,4 @@
-import { FETCH_RECIPES, GET_RECIPE } from './actionTypes';
+import { FETCH_RECIPES, GET_RECIPE, UPDATE_RATING } from './actionTypes';
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export const fetchRecipes = () => async dispatch => {
@@ -15,5 +15,13 @@ export const getRecipe = id => async dispatch => {
   dispatch({
     type: GET_RECIPE,
     payload: id,
+  });
+};
+
+export const updateRating = (recipeId, rating) => async dispatch => {
+  dispatch({
+    type: UPDATE_RATING,
+    recipeId,
+    rating,
   });
 };

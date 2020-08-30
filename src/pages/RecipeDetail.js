@@ -2,8 +2,8 @@ import React from 'react';
 import withStyles from 'react-jss';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { getRecipe } from '../actions';
-import { time2Text, mapDifficulty } from '../utils';
+import { getRecipe, updateRating } from '../actions';
+import { time2Text, mapDifficulty, calculateRating } from '../utils';
 import RatingStars from '../components/RatingStars';
 
 const styles = {
@@ -106,6 +106,12 @@ class RecipeDetail extends React.Component {
 
     getRecipe(id);
   }
+
+  handleUpdateRating = rating => {
+    const { updateRating, selectedRecipe } = this.props;
+    updateRating(selectedRecipe.id, rating);
+  };
+
   render() {
     const { selectedRecipe = {}, classes } = this.props;
     const {
@@ -133,9 +139,10 @@ class RecipeDetail extends React.Component {
             </div>
             <RatingStars
               big
-              rating={rating}
+              rating={calculateRating(rating)}
               className={classes.rating}
               classes={{ ratingNumber: classes.ratingNumber }}
+              onChange={this.handleUpdateRating}
             />
           </div>
           <div className={classes.descriptionContainer}>
@@ -211,5 +218,5 @@ function mapStateToProps({ recipes: recipesReducer }) {
 
 export default connect(
   mapStateToProps,
-  { getRecipe }
+  { getRecipe, updateRating }
 )(withStyles(styles)(RecipeDetail));
