@@ -1,4 +1,4 @@
-const periods = { M: 'Minutes', H: 'Hours', PT: 'Preparation Time: ' };
+const periods = { M: 'Minutes', H: 'Hours', PT: 'Preparation Time:' };
 const difficulties = {
   0: 'Super Easy',
   1: 'Easy',
@@ -14,7 +14,7 @@ export const time2Text = time => {
 };
 
 export const mapDifficulty = difficulty => {
-  return difficulties[difficulty];
+  return difficulties[difficulty] || '';
 };
 
 export const calculateRating = ratingList => {
