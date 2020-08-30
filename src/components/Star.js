@@ -51,7 +51,7 @@ Star.defaultProps = {
 
 Star.propTypes = {
   value: PropTypes.number.isRequired,
-  rating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  rating: PropTypes.number.isRequired,
   big: PropTypes.bool,
   onClick: PropTypes.func,
 };

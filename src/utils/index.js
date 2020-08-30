@@ -24,8 +24,7 @@ export const calculateRating = ratingList => {
       (acc, rating, index) => (acc += rating * (index + 1)),
       0
     );
-
-    return (rating / votes).toFixed(1);
+    return parseFloat((rating / votes).toFixed(1));
   }
   return ratingList;
 };

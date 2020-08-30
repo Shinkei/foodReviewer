@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
-import RatingStars from './RatingStars';
 import { time2Text } from '../utils';
 
 const styles = {
@@ -54,7 +53,6 @@ const RecipeCard = ({
         <h6 className={classes.text}>{`🔥 ${calories || 'no info'}`}</h6>
         <h6 className={classes.text}>{`⏲ ${time2Text(time)}`}</h6>
       </div>
-      <RatingStars rating={rating} />
     </div>
   );
 };

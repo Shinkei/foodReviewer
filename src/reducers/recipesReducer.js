@@ -14,7 +14,7 @@ const initialState = {
  * Find the index of the recipe that is going to be updated, then removed and
  * update the rating, then put back the recipe in it's origianl position
  */
-const updateRecipeRating = (recipes, id, value, field) => {
+const updateRecipeRating = (recipes, id, value) => {
   const recipeIndex = recipes.map(recipe => recipe.id).indexOf(id);
   const recipe = remove(recipes, recipe => recipe.id === id)[0];
 

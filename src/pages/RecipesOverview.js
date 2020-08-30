@@ -2,9 +2,10 @@ import React from 'react';
 import withStyles from 'react-jss';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchRecipes } from '../actions';
+import { fetchRecipes, updateRating } from '../actions';
 import RecipeCard from '../components/RecipeCard';
 import { calculateRating } from '../utils';
+import RatingStars from '../components/RatingStars';
 
 const styles = {
   recipesList: {
@@ -15,9 +16,18 @@ const styles = {
   },
   recipe: {
     height: 350,
+    paddingBottom: 32,
   },
   link: {
     textDecoration: 'none',
+  },
+  ratingStars: {
+    position: 'absolute',
+    bottom: 16,
+    left: 16,
+  },
+  recipeLink: {
+    position: 'relative',
   },
 };
 
@@ -29,25 +39,34 @@ class RecipesOverview extends React.Component {
     }
   }
 
+  handleupdateRating = (id, rating) => {
+    const { updateRating } = this.props;
+    updateRating(id, rating);
+  };
+
   render() {
     const { recipes, classes } = this.props;
     return (
       <div className={classes.recipesList}>
         {recipes.map(recipe => (
-          <Link
-            to={`/recipe/${recipe.id}`}
-            className={classes.link}
-            key={recipe.id}>
-            <RecipeCard
-              className={classes.recipe}
-              name={recipe.name}
-              headline={recipe.headline}
-              image={recipe.image}
+          <div key={recipe.id} className={classes.recipeLink}>
+            <Link to={`/recipe/${recipe.id}`} className={classes.link}>
+              <RecipeCard
+                className={classes.recipe}
+                name={recipe.name}
+                headline={recipe.headline}
+                image={recipe.image}
+                rating={calculateRating(recipe.rating)}
+                calories={recipe.calories}
+                time={recipe.time}
+              />
+            </Link>
+            <RatingStars
               rating={calculateRating(recipe.rating)}
-              calories={recipe.calories}
-              time={recipe.time}
+              className={classes.ratingStars}
+              onChange={rating => this.handleupdateRating(recipe.id, rating)}
             />
-          </Link>
+          </div>
         ))}
       </div>
     );
@@ -60,5 +79,5 @@ function mapStateToProps({ recipes: recipesReducer }) {
 
 export default connect(
   mapStateToProps,
-  { fetchRecipes }
+  { fetchRecipes, updateRating }
 )(withStyles(styles)(RecipesOverview));
