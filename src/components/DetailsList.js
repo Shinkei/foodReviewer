@@ -4,17 +4,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { time2Text, mapDifficulty } from '../utils';
 import Detail from './Detail';
+import Theme from '../utils/theme';
 
 const styles = {
-  primaryText: {
-    fontFamily: 'Montserrat, sans-serif',
-    letterSpacing: '-0.3px',
-    lineHeight: '1.7em',
-    color: '#343434',
-    fontWeight: 400,
-    margin: 0,
+  primaryText: Theme.primaryText,
+  detailTitle: {
+    fontWeight: 500,
   },
-  detailTitle: {},
 };
 
 const DetailsList = ({
@@ -28,12 +24,12 @@ const DetailsList = ({
   className,
 }) => {
   const details = [
-    { emoji: '⏲', text: time2Text(time), label: 'preparation time' },
-    { emoji: '💪', text: mapDifficulty(difficulty), label: 'difficulty' },
-    { emoji: '🔥', text: calories, label: 'calories' },
-    { emoji: '🥖', text: carbos, label: 'carbos' },
-    { emoji: '🍖', text: proteins, label: 'proteins' },
-    { emoji: '🧈', text: fats, label: 'fats' },
+    { emoji: '⏲', text: time2Text(time), label: 'Time' },
+    { emoji: '🎚', text: mapDifficulty(difficulty), label: 'Difficulty' },
+    { emoji: '🔥', text: calories, label: 'Calories' },
+    { emoji: '🥖', text: carbos, label: 'Carbohydrate' },
+    { emoji: '🍖', text: proteins, label: 'Protein' },
+    { emoji: '🧈', text: fats, label: 'Fat' },
   ];
 
   return (
@@ -43,7 +39,14 @@ const DetailsList = ({
       </h3>
       {details.map((detail, index) => {
         if (detail.text) {
-          return <Detail key={index} emoji={detail.emoji} text={detail.text} />;
+          return (
+            <Detail
+              key={index}
+              emoji={detail.emoji}
+              text={detail.text}
+              label={detail.label}
+            />
+          );
         }
         return undefined;
       })}

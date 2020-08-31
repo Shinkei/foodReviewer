@@ -1,4 +1,4 @@
-const periods = { M: 'Minutes', H: 'Hours', PT: 'Preparation Time:' };
+const periods = { M: 'Minutes', H: 'Hours', PT: ' ' };
 const difficulties = {
   0: 'Super Easy',
   1: 'Easy',

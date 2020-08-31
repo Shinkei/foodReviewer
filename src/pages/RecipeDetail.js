@@ -7,8 +7,15 @@ import { calculateRating } from '../utils';
 import RatingStars from '../components/RatingStars';
 import IngredientsList from '../components/IngredientsList';
 import DetailsList from '../components/DetailsList';
+import Colors from '../utils/colors';
+import Theme from '../utils/theme';
 
 const styles = {
+  primaryText: Theme.primaryText,
+  secondaryText: Theme.secondaryText,
+  root: {
+    backgroundColor: Colors.vistaWhite,
+  },
   image: {
     width: '100%',
     height: 'auto',
@@ -19,23 +26,10 @@ const styles = {
     margin: '0px 16px',
     padding: 16,
     border: '1px solid',
-    borderColor: 'lightgray',
-    backgroundColor: 'white',
+    borderColor: Colors.lightGrey,
+    backgroundColor: Colors.white,
     position: 'relative',
     top: -80,
-  },
-  primaryText: {
-    fontFamily: 'Montserrat, sans-serif',
-    letterSpacing: '-0.3px',
-    lineHeight: '1.7em',
-    color: '#343434',
-    fontWeight: 400,
-    margin: 0,
-  },
-  secondaryText: {
-    fontFamily: 'Source Sans Pro',
-    lineHeight: '1.7em',
-    fontWeight: 400,
   },
   description: {
     width: '70%',
@@ -84,7 +78,7 @@ const styles = {
     marginLeft: 6,
     fontFamily: 'Source Sans Pro',
     fontSize: 24,
-    color: '#000',
+    color: Colors.black,
   },
   ingredients: {
     marginTop: 12,
@@ -128,7 +122,7 @@ class RecipeDetail extends React.Component {
       rating,
     } = selectedRecipe;
     return (
-      <main>
+      <main className={classes.root}>
         <img src={image} alt="recipe" className={classes.image} />
         <section className={classes.mainSection}>
           <div className={classes.titleContainer}>

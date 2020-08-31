@@ -1,10 +1,11 @@
 import React from 'react';
 import withStyles from 'react-jss';
 import PropTypes from 'prop-types';
+import Colors from '../utils/colors';
 
 const styles = {
   root: {
-    color: 'gold',
+    color: Colors.gold,
     marginRight: 2,
     fontSize: 12,
   },
@@ -26,6 +27,7 @@ const Star = ({
   return (
     <label className={classes.root} style={{ fontSize: big ? 24 : 12 }}>
       <input
+        tabIndex={value}
         type="ratio"
         name="rating"
         defaultValue={value}

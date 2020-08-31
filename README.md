@@ -3,8 +3,6 @@
 This is a react app that shows a list of recipes that let the user navigate to the detailed recipe and check the description, image, details, and ingredients.
 There is the possibility to rate each recipe as many times the user wants and it will show the average rate for each recipe.
 
-![app image](https://github.com/hellofreshdevtests/Shinkei-frontend-react-test/tree/develop/overview.png)
-
 ### Technologies
  - React
  - Redux

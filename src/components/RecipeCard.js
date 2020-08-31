@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { time2Text } from '../utils';
+import Colors from '../utils/colors';
 
 const styles = {
   root: {
@@ -16,7 +17,7 @@ const styles = {
   },
   text: {
     fontFamily: 'Montserrat, sans-serif',
-    color: '#fff',
+    color: Colors.white,
     letterSpacing: '-0.3px',
     fontWeight: 400,
     marginTop: 4,

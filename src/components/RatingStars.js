@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import Star from './Star';
+import Colors from '../utils/colors';
 
 const styles = {
   ratingNumber: {
     marginLeft: 6,
     fontFamily: 'Source Sans Pro',
     fontSize: 12,
-    color: '#fff',
+    color: Colors.white,
   },
 };
 

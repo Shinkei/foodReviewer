@@ -2,8 +2,11 @@ import React from 'react';
 import withStyles from 'react-jss';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import Theme from '../utils/theme';
 
 const styles = {
+  primaryText: Theme.primaryText,
+  secondaryText: Theme.secondaryText,
   ingredientList: {
     padding: 0,
   },
@@ -13,25 +16,17 @@ const styles = {
       content: '"🌱 "',
     },
   },
-  primaryText: {
-    fontFamily: 'Montserrat, sans-serif',
-    letterSpacing: '-0.3px',
-    lineHeight: '1.7em',
-    color: '#343434',
-    fontWeight: 400,
-    margin: 0,
-  },
-  secondaryText: {
-    fontFamily: 'Source Sans Pro',
-    lineHeight: '1.7em',
-    fontWeight: 400,
+  title: {
+    fontWeight: 500,
   },
 };
 
 const IngredientsList = ({ ingredients, className, classes }) => {
   return (
     <div className={className}>
-      <h3 className={classes.primaryText}>Ingredients</h3>
+      <h3 className={classNames(classes.primaryText, classes.title)}>
+        Ingredients
+      </h3>
       <ul className={classes.ingredientList}>
         {ingredients.map((ingredient, index) => (
           <li
