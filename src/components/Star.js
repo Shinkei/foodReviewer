@@ -37,7 +37,8 @@ const Star = ({
       />
       <span
         onMouseEnter={() => onHoverEnter(value)}
-        onMouseLeave={() => onHoverLeave()}>
+        onMouseLeave={() => onHoverLeave()}
+        aria-label={`star value${value}`}>
         {value <= (hover || rating) ? '★' : '☆'}
       </span>
     </label>

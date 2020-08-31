@@ -89,6 +89,9 @@ const styles = {
   ingredients: {
     marginTop: 12,
   },
+  subtitle: {
+    fontSize: 16,
+  },
 };
 
 class RecipeDetail extends React.Component {
@@ -125,13 +128,15 @@ class RecipeDetail extends React.Component {
       rating,
     } = selectedRecipe;
     return (
-      <>
+      <main>
         <img src={image} alt="recipe" className={classes.image} />
         <section className={classes.mainSection}>
           <div className={classes.titleContainer}>
             <div>
               <h1 className={classes.primaryText}>{name}</h1>
-              <h4 className={classes.primaryText}>{headline}</h4>
+              <h2 className={classNames(classes.primaryText, classes.subtitle)}>
+                {headline}
+              </h2>
             </div>
             <RatingStars
               big
@@ -161,7 +166,7 @@ class RecipeDetail extends React.Component {
             className={classes.ingredients}
           />
         </section>
-      </>
+      </main>
     );
   }
 }
@@ -170,7 +175,6 @@ function mapStateToProps({ recipes: recipesReducer }) {
   return { selectedRecipe: recipesReducer.selectedRecipe };
 }
 
-export default connect(
-  mapStateToProps,
-  { getRecipe, updateRating }
-)(withStyles(styles)(RecipeDetail));
+export default connect(mapStateToProps, { getRecipe, updateRating })(
+  withStyles(styles)(RecipeDetail)
+);

@@ -47,7 +47,7 @@ class RecipesOverview extends React.Component {
   render() {
     const { recipes, classes } = this.props;
     return (
-      <div className={classes.recipesList}>
+      <main className={classes.recipesList}>
         {recipes.map(recipe => (
           <div key={recipe.id} className={classes.recipeLink}>
             <Link to={`/recipe/${recipe.id}`} className={classes.link}>
@@ -68,7 +68,7 @@ class RecipesOverview extends React.Component {
             />
           </div>
         ))}
-      </div>
+      </main>
     );
   }
 }
@@ -77,7 +77,6 @@ function mapStateToProps({ recipes: recipesReducer }) {
   return { recipes: recipesReducer.recipes };
 }
 
-export default connect(
-  mapStateToProps,
-  { fetchRecipes, updateRating }
-)(withStyles(styles)(RecipesOverview));
+export default connect(mapStateToProps, { fetchRecipes, updateRating })(
+  withStyles(styles)(RecipesOverview)
+);

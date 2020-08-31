@@ -46,7 +46,7 @@ class RatingStars extends React.Component {
     const { classes, big, className } = this.props;
     const { rating, hover } = this.state;
     return (
-      <span className={className}>
+      <form className={className}>
         {[1, 2, 3, 4, 5].map(num => (
           <Star
             key={num}
@@ -60,7 +60,7 @@ class RatingStars extends React.Component {
           />
         ))}
         <span className={classes.ratingNumber}>{rating}</span>
-      </span>
+      </form>
     );
   }
 }

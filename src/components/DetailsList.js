@@ -28,12 +28,12 @@ const DetailsList = ({
   className,
 }) => {
   const details = [
-    { emoji: '⏲', text: time2Text(time) },
-    { emoji: '💪', text: mapDifficulty(difficulty) },
-    { emoji: '🔥', text: calories },
-    { emoji: '🥖', text: carbos },
-    { emoji: '🍖', text: proteins },
-    { emoji: '🧈', text: fats },
+    { emoji: '⏲', text: time2Text(time), label: 'preparation time' },
+    { emoji: '💪', text: mapDifficulty(difficulty), label: 'difficulty' },
+    { emoji: '🔥', text: calories, label: 'calories' },
+    { emoji: '🥖', text: carbos, label: 'carbos' },
+    { emoji: '🍖', text: proteins, label: 'proteins' },
+    { emoji: '🧈', text: fats, label: 'fats' },
   ];
 
   return (

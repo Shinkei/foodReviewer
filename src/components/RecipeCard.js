@@ -29,6 +29,15 @@ const styles = {
       marginRight: 8,
     },
   },
+  title: {
+    fontSize: 18,
+  },
+  subtitle: {
+    fontSize: 14,
+  },
+  caption: {
+    fontSize: 12,
+  },
 };
 
 const RecipeCard = ({
@@ -42,18 +51,23 @@ const RecipeCard = ({
   className,
 }) => {
   return (
-    <div
+    <section
       className={classNames(classes.root, className)}
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0) 10%,rgba(0,0,0,0.8) 80%),url(${image})`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0) 10%,rgba(0,0,0,0.8) 90%),url(${image})`,
       }}>
-      <h3 className={classes.text}>{name}</h3>
-      <h5 className={classes.text}>{headline}</h5>
+      <h1 className={classNames(classes.text, classes.title)}>{name}</h1>
+      <h2 className={classNames(classes.text, classes.subtitle)}>{headline}</h2>
       <div className={classes.details}>
-        <h6 className={classes.text}>{`🔥 ${calories || 'no info'}`}</h6>
-        <h6 className={classes.text}>{`⏲ ${time2Text(time)}`}</h6>
+        <h3
+          className={classNames(classes.text, classes.caption)}
+          aria-label={`${calories} calories`}>{`🔥 ${calories ||
+          'no info'}`}</h3>
+        <h3
+          className={classNames(classes.text, classes.caption)}
+          aria-label={time2Text(time)}>{`⏲ ${time2Text(time)}`}</h3>
       </div>
-    </div>
+    </section>
   );
 };
 

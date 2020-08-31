@@ -10,9 +10,9 @@ const styles = {
   },
 };
 
-const Detail = ({ emoji, text, classes }) => {
+const Detail = ({ emoji, text, label, classes }) => {
   return (
-    <div className={classes.secondaryText}>
+    <div className={classes.secondaryText} aria-label={label}>
       {!!emoji && (
         <span role="img" aria-label="time">
           {emoji}{' '}
@@ -26,11 +26,13 @@ const Detail = ({ emoji, text, classes }) => {
 Detail.defaultProps = {
   emoji: null,
   text: '',
+  label: '',
 };
 
 Detail.propTypes = {
   emoji: PropTypes.string,
   text: PropTypes.string,
+  label: PropTypes.string,
 };
 
 export default withStyles(styles)(Detail);
