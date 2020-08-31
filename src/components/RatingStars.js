@@ -19,6 +19,12 @@ class RatingStars extends React.Component {
     this.state = { rating: 0, hover: null };
   }
 
+  /**
+   * Check if redux send a different rating value to overwrite
+   * the actual one
+   * @param {object} props
+   * @param {object} state
+   */
   static getDerivedStateFromProps(props, state) {
     if (props.rating !== state.rating) {
       return { rating: props.rating || 0 };
@@ -36,9 +42,17 @@ class RatingStars extends React.Component {
     });
   };
 
+  /**
+   * Store the start value where the mouse is
+   * @param {number} hover
+   */
   handleHoverEnter = hover => {
     this.setState({ hover });
   };
+
+  /**
+   * Clan the state for the hover vaue when the mouse leave the star
+   */
   handleHoverLeave = () => {
     this.setState({ hover: null });
   };

@@ -12,7 +12,7 @@ const jsonPromise = Promise.resolve(
 
 /**
  * Mocked function
- * mock the fetch function, to return the mock data fron local file
+ * mock the fetch function, to return the mock data from local file
  */
 jest.spyOn(global, 'fetch').mockImplementation(() => {
   return Promise.resolve({

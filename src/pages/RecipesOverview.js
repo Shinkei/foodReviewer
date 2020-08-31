@@ -39,7 +39,13 @@ class RecipesOverview extends React.Component {
     }
   }
 
-  handleupdateRating = (id, rating) => {
+  /**
+   * Update the rating of the corresponding recipe,
+   * and execute the update redux action
+   * @param {string} id
+   * @param {number} rating
+   */
+  handleUpdateRating = (id, rating) => {
     const { updateRating } = this.props;
     updateRating(id, rating);
   };
@@ -64,7 +70,7 @@ class RecipesOverview extends React.Component {
             <RatingStars
               rating={calculateRating(recipe.rating)}
               className={classes.ratingStars}
-              onChange={rating => this.handleupdateRating(recipe.id, rating)}
+              onChange={rating => this.handleUpdateRating(recipe.id, rating)}
             />
           </div>
         ))}

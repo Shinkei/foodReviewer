@@ -100,10 +100,27 @@ class RecipeDetail extends React.Component {
     getRecipe(id);
   }
 
+  /**
+   * Get the selected rating from the user and execute the action
+   * for Redux to update the rating
+   * @param {number} rating
+   */
   handleUpdateRating = rating => {
     const { updateRating, selectedRecipe } = this.props;
     updateRating(selectedRecipe.id, rating);
   };
+
+  /**
+   * If the selected Recipe has an id the we can asume that it
+   * is a valid recipe, otherwhise redirect to the homepage
+   */
+  componentDidUpdate() {
+    const { selectedRecipe, history } = this.props;
+    if (!selectedRecipe.id) {
+      console.log(selectedRecipe);
+      history.push('/');
+    }
+  }
 
   render() {
     const { selectedRecipe = {}, classes } = this.props;

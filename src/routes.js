@@ -6,8 +6,8 @@ import RecipeDetail from './pages/RecipeDetail';
 export default () => {
   return (
     <Switch>
-      <Route path="/" exact component={RecipesOverview} />
       <Route path="/recipe/:id" component={RecipeDetail} />
+      <Route path="/" component={RecipesOverview} />
     </Switch>
   );
 };

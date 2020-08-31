@@ -51,6 +51,19 @@ to run the unit test, execute the command
 npm test
 ```
 
+### Deploy
+The deployment is done in netlify, to do so please execute this commands
+
+```
+npm run build
+netlify deploy
+```
+
+### Deploy url
+
+[jorgehellofresh.netlify.app](https://jorgehellofresh.netlify.app)
+
+
 ### Author
 
 Jorge Ramirez [shinkei](https://github.com/shinkei)

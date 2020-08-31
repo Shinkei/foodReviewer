@@ -13,6 +13,9 @@ const initialState = {
 /**
  * Find the index of the recipe that is going to be updated, then removed and
  * update the rating, then put back the recipe in it's origianl position
+ * @param {Array} recipes
+ * @param {string} id
+ * @param {number} value
  */
 export const updateRecipeRating = (recipes, id, value) => {
   const recipesList = [...recipes];

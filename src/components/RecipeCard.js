@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import { time2Text } from '../utils';
 import Colors from '../utils/colors';
+import Theme from '../utils/theme';
 
 const styles = {
   root: {
@@ -16,12 +17,8 @@ const styles = {
     padding: 16,
   },
   text: {
-    fontFamily: 'Montserrat, sans-serif',
+    ...Theme.primaryText,
     color: Colors.white,
-    letterSpacing: '-0.3px',
-    fontWeight: 400,
-    marginTop: 4,
-    marginBottom: 0,
   },
   details: {
     display: 'flex',
