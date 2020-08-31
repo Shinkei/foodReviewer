@@ -10,7 +10,7 @@ import RatingStars from '../components/RatingStars';
 const styles = {
   recipesList: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
     gridGap: 8,
     gridAutoFlow: 'row',
   },
